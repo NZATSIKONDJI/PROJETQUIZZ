@@ -8,12 +8,13 @@
 <body>
     <div class="container">
         <header id="page-title">Home</header>
+
         <div id="home-screen">
             <div class="home-content">
                 <img src="logo-quizy.png" alt="Quizy Logo" class="logo">
-                </div>
-       <button onclick="startRandomQuiz()" class="random-quiz-btn">Random Quiz</button>
             </div>
+            <button onclick="startRandomQuiz()" class="random-quiz-btn">Random Quiz</button>
+        </div>
 
         <div id="categories-screen" style="display: none;">
             <h2>Choisir une catégorie</h2>
@@ -24,6 +25,7 @@
 
         <div id="quiz-screen" style="display: none;">
             <h2 id="question"></h2>
+            <p id="timer-display" style="display: none;">Temps restant : <span id="timer-seconds">0</span>s</p>
             <div id="answers"></div>
             <button id="next-btn" onclick="nextQuestion()">Suivant</button>
             <p id="feedback-message"></p>
@@ -32,41 +34,46 @@
 
         <div id="settings-screen" style="display: none;">
             <h2>Paramètres</h2>
-            <label>Pseudo:</label>
+            <label for="username">Pseudo :</label>
             <input type="text" id="username" placeholder="Entrez votre pseudo">
-            <label>Nombre de questions:</label>
+            <label for="question-count">Nombre de questions :</label>
             <input type="number" id="question-count" min="1" max="50" value="10">
-            <label>Niveau de difficulté:</label>
+            <label for="difficulty">Niveau de difficulté :</label>
             <select id="difficulty">
                 <option value="easy">Facile</option>
                 <option value="medium">Moyen</option>
                 <option value="hard">Difficile</option>
             </select>
-            <label>Type de question:</label>
+            <label for="question-type">Type de question :</label>
             <select id="question-type">
                 <option value="multiple">Choix multiple</option>
                 <option value="boolean">Vrai/Faux</option>
+            </select>
+            <label for="timer-enabled">Activer le timer :</label>
+            <select id="timer-enabled">
+                <option value="yes">Oui</option>
+                <option value="no" selected>Non</option>
             </select>
             <button onclick="saveSettings()">Sauvegarder</button>
             <button onclick="showHome()">Retour</button>
         </div>
 
-       <div id="leaderboard-screen" style="display: none;">
-    <h2>Classement</h2>
-    <table id="leaderboard-table">
-        <thead>
-            <tr>
-                <th>Pseudo</th>
-                <th>Score</th>
-                <th>Catégorie</th>
-                <th>Difficulté</th>
-                <th>Type</th>
-            </tr>
-        </thead>
-        <tbody id="leaderboard-body"></tbody>
-    </table>
-    <button onclick="showHome()">Retour</button>
-</div>
+        <div id="leaderboard-screen" style="display: none;">
+            <h2>Classement</h2>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Score</th>
+                        <th>Catégorie</th>
+                        <th>Difficulté</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+            </table>
+            <button onclick="showHome()">Retour</button>
+        </div>
     </div>
 
     <footer class="footer">
@@ -86,3 +93,4 @@
 
     <script src="HTMLQUIZZ.js"></script>
 </body>
+</html>
